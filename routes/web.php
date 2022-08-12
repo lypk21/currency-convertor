@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', [\App\Http\Controllers\CronCurrencyController::class, 'retrieveCurrenciesFromApilayer']);
+Route::get('/get_data', [\App\Http\Controllers\CronCurrencyController::class, 'retrieveCurrenciesFromApilayer']);

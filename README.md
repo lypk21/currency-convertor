@@ -1,61 +1,46 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+1. Vue.js project and Laravel project complete the follow tasks:
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    1. User registration and login.
+    2. Home page shows the list of available currencies to select up to five.
+    3. A currency conversion table should be shown for the five selected currencies.
+    4. A report request can be submitted by selecting one of the following range and
+        interval pairs:
+        a. Range: One Year, Interval: Monthly
+        b. Range: Six Months, Interval: Weekly
+        c. Range: One Month, Interval: Daily
+    5. BarChart show report data.
+    
+2. how to run laravel project:
+    
+    1.  composer install, copy .env from .env.example, set up your own currencylayer api key as: CURRENCY_API_KEY=****
+    2.  recommend use valet, install valet and  cd to /currency-convertor, run: valet link
+    2.  setup your database connection in .env, and then run: php artisan migrate
+    3.  run: php artisan schedule:work, to retrieve data from time frame API for one year of 5 currencies data, 
+        this schedule work will save data to database currency table, if you did not run the schedule work, 
+        there is no data for bar chart. The schedule cron run every 5 minutes, please wait for schedule or visit: http://currency-convertor.test/get_data
+    4.  to run test case: php artisan test 
+        
+3. how to run vue.js project:
+    1. npm install
+    2. setup the base url endpoint in webpack.config.js, if use valet, should be: apiUrl: 'http://currency-convertor.test/api'
+    3. launch laravel project first, and then launch vue.js project by run: npm start
+    
+4. main tech apply: 
+   laravel project: Laravel Eloquent ORM, Request Validation, Scheduled Jobs, 
+                    API User Authentication, API Token, API Response Encapsulation, 
+                    API Exception Handler(please refer app/Exceptions/Handler), API HTTP Status Code  
+                    Service Layer for web/api/cron reusable purpose,
+                    Laravel Unit Test for testing  api
+                    
+   Vue.js project:  Vuex, vue-router, vue-chartjs
+   
+5. How the UI look like: 
+   
+   Main Screen: show currency with live API, show report data with time frame API that run by schedule and save data list to database <br>
+   <img src="https://github.com/lypk21/vue-currency/blob/master/home.png" width="600">
+   
+   Login Screen: <br>                
+   <img src="https://github.com/lypk21/vue-currency/blob/master/login.png" width="600"> 
+   
+   Register Screen:  <br>               
+   <img src="https://github.com/lypk21/vue-currency/blob/master/register.png" width="600">                 
