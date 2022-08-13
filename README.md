@@ -32,7 +32,7 @@
                     Service Layer for web/api/cron reusable purpose,
                     Laravel Unit Test for testing  api
                     
-   Vue.js project:  Vuex, vue-router, vue-chartjs
+   Vue.js project:  Vuex, vue-router, vue-chartjs, API token storage, Fetch API
    
 5. How the UI look like: 
    
