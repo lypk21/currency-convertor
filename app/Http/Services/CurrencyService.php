@@ -101,7 +101,7 @@ class CurrencyService
 
             $start_date = date('Y-m-d', strtotime($end_date.' +1 day'));
             $end_date = date("Y-m-t", strtotime($start_date));
-        } while($start_date <= date('Y-m-t'));
+        } while($start_date <= date('Y-m-d'));
         return $data;
     }
 
@@ -122,7 +122,7 @@ class CurrencyService
 
             $start_date = date('Y-m-d', strtotime($end_date.' +1 day'));
             $end_date = date("Y-m-d", strtotime("next saturday", strtotime($start_date)));
-        } while($start_date <= date('Y-m-t'));
+        } while($start_date <= date('Y-m-d'));
         return $data;
     }
 
@@ -139,7 +139,7 @@ class CurrencyService
                 'title' => $start_date
             ];
             $start_date = date('Y-m-d', strtotime($start_date.' +1 day'));
-        } while($start_date <= date('Y-m-t'));
+        } while($start_date <= date('Y-m-d'));
         return $data;
     }
 }
