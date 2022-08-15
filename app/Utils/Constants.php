@@ -11,7 +11,8 @@ class Constants
         'AUD',
         'EUR',
         'CAD',
-        'HKD'
+        'HKD',
+        'JPY'
     ];
 
     const HTTP_CODE_OK = 200;
