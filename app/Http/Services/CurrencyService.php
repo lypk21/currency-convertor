@@ -46,9 +46,9 @@ class CurrencyService
        }
     }
 
-    public function getCurrencyTimeFrame($base, $symbols, $start_date, $end_date) {
+    public function getCurrencyTimeFrame($source, $currencies, $start_date, $end_date) {
         try {
-            $path = "currency_data/timeframe?start_date=".$start_date."&end_date=".$end_date."&base=".$base."&symbols=".$symbols;
+            $path = "currency_data/timeframe?start_date=".$start_date."&end_date=".$end_date."&source=".$source."&currencies=".$currencies;
             $jsonRes = $this->apilayerCurl->curl_get_request($path);
             $arrRes = json_decode($jsonRes, true);
             if(data_get($arrRes, "error")) {
